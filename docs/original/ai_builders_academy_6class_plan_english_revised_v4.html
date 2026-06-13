@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Builders Academy - 6-Class Course Plan</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --ink: #172033;
+      --muted: #65718a;
+      --line: #dfe5ef;
+      --accent: #3b82f6;
+      --accent2: #7c3aed;
+      --soft: #eef5ff;
+      --soft2: #f4efff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #16213e 0%, #3056d3 55%, #7c3aed 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 52px 42px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(42, 72, 160, 0.28);
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -120px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.28);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 820px;
+      font-size: 20px;
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 0;
+      max-width: 900px;
+    }
+
+    .meta div {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .meta strong {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 2px;
+    }
+
+    .section { margin-top: 34px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-title .num {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: inline-grid;
+      place-items: center;
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05);
+    }
+
+    .card.soft {
+      background: var(--soft);
+      border-color: #cfe0ff;
+    }
+
+    .card.soft2 {
+      background: var(--soft2);
+      border-color: #ded0ff;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .timeline { display: grid; gap: 16px; }
+
+    .week {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05);
+    }
+
+    .week-label {
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      color: white;
+      padding: 22px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .week-label span {
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    .week-body { padding: 22px 24px; }
+
+    .week-body p {
+      margin: 6px 0 12px;
+      color: var(--muted);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini {
+      background: #f8fafc;
+      border: 1px solid #e5eaf3;
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .mini strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05);
+    }
+
+    th, td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #172033;
+      color: white;
+      font-size: 14px;
+    }
+
+    td { font-size: 15px; }
+    tr:last-child td { border-bottom: none; }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    .outcomes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .outcome {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      min-height: 148px;
+    }
+
+    .emoji {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .callout {
+      border-left: 6px solid var(--accent);
+      background: white;
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.05);
+    }
+
+    .highlight {
+      color: var(--accent2);
+      font-weight: 800;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 44px;
+      font-size: 14px;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .hero, .card, .week, table, .callout { box-shadow: none; }
+      .section, .week { break-inside: avoid; }
+    }
+
+    @media (max-width: 860px) {
+      .meta, .grid.two, .grid.three, .outcomes, .mini-grid {
+        grid-template-columns: 1fr;
+      }
+      .week { grid-template-columns: 1fr; }
+      .week-label {
+        flex-direction: row;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="badge">6-Class High School AI Creator Course</div>
+      <h1>AI Builders Academy</h1>
+      <p>
+        A hands-on AI course where high school students learn ChatGPT, prompt engineering,
+        VS Code, Codex, web UI building, game development, MCP, YouTube integration,
+        Browser Use, Computer Use, OpenClaw, OAuth, and AI agents through practical projects.
+      </p>
+      <div class="meta">
+        <div><strong>Audience</strong>High School Students</div>
+        <div><strong>Duration</strong>4–6 Weeks</div>
+        <div><strong>Schedule</strong>Once a Week / 90–120 min</div>
+        <div><strong>Format</strong>Demo + Hands-on Project</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">1</span>
+        <h2>Course Vision</h2>
+      </div>
+      <div class="grid two">
+        <div class="card soft">
+          <h3>Main Goal</h3>
+          <p class="lead">
+            Students will move from simply “using AI” to <strong>building with AI</strong>.
+            They will create real projects such as web UIs, games, research agents, and automation workflows.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Practical AI</span>
+            <span class="pill">Creator Mindset</span>
+            <span class="pill">Build First</span>
+            <span class="pill">Fun Projects</span>
+          </div>
+        </div>
+        <div class="card soft2">
+          <h3>Teaching Philosophy</h3>
+          <p class="lead">
+            This course avoids heavy theory, advanced math, and academic machine learning lectures.
+            The focus is on curiosity, creativity, and tools students can actually use.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Roblox</span>
+            <span class="pill">Minecraft</span>
+            <span class="pill">YouTube</span>
+            <span class="pill">Games</span>
+            <span class="pill">Automation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">2</span>
+        <h2>Course Overview</h2>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th>Topic</th>
+            <th>Core Activity</th>
+            <th>Student Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Class 1</td>
+            <td>ChatGPT Master</td>
+            <td>Prompt engineering and AI assistant design</td>
+            <td>Personal AI Assistant</td>
+          </tr>
+          <tr>
+            <td>Class 2</td>
+            <td><strong>VS Code + Codex Setup with Web UI Example</strong></td>
+            <td>Install VS Code, set up Codex, learn the UI, manage tokens, and build a simple web UI example</td>
+            <td>Ready-to-use AI coding environment + simple web UI</td>
+          </tr>
+          <tr>
+            <td>Class 3</td>
+            <td><strong>AI Game Studio with Codex</strong></td>
+            <td>Build a simple browser game using VS Code and Codex</td>
+            <td>Playable HTML/JavaScript Game</td>
+          </tr>
+          <tr>
+            <td>Class 4</td>
+            <td><strong>MCP + YouTube Agent</strong></td>
+            <td>Introduce MCP, connect AI with external tools, and build a YouTube research agent</td>
+            <td>AI YouTube Research Report</td>
+          </tr>
+          <tr>
+            <td>Class 5</td>
+            <td>Browser Use + Computer Use</td>
+            <td>Explore AI agents that operate a browser or computer-like environment</td>
+            <td>Browser/Computer task automation demo project</td>
+          </tr>
+          <tr>
+            <td>Class 6</td>
+            <td>OpenClaw + Codex OAuth</td>
+            <td>Introduce OpenClaw, OAuth login flow, agent connection, and final project presentation</td>
+            <td>OpenClaw-based final AI agent concept or demo</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">3</span>
+        <h2>Class-by-Class Lesson Plan</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="week">
+          <div class="week-label">CLASS <span>1</span></div>
+          <div class="week-body">
+            <h3>Meet Your AI Teammate — ChatGPT Basics</h3>
+            <p>
+              Students learn that ChatGPT is not just a search engine. It can act as a brainstorming partner,
+              tutor, coach, writer, and project assistant. Students practice the prompt formula:
+              <span class="highlight">Role + Task + Context + Format</span>.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can AI do my homework?</div>
+              <div class="mini"><strong>Demo</strong>Bad prompt vs. good prompt comparison</div>
+              <div class="mini"><strong>Homework</strong>Create an AI assistant with 5 example conversations</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="week">
+          <div class="week-label">CLASS <span>2</span></div>
+          <div class="week-body">
+            <h3>AI Coding Environment — VS Code + Codex Setup with Web UI Example</h3>
+            <p>
+              This class combines environment setup with a practical web UI example. Students install or open VS Code,
+              set up Codex, learn the basic user interface, understand folders and files, practice token management,
+              and use Codex to create a simple web UI. The web UI is used as the example project for learning the tool.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can AI become your coding partner inside VS Code?</div>
+              <div class="mini"><strong>Demo</strong>Set up Codex, open a folder, generate a simple web UI, and preview it</div>
+              <div class="mini"><strong>Homework</strong>Complete setup and customize the web UI with one personal section</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="week">
+          <div class="week-label">CLASS <span>3</span></div>
+          <div class="week-body">
+            <h3>AI Game Studio — Build a Game with Codex</h3>
+            <p>
+              Students use the VS Code + Codex environment prepared in Class 2 to build a simple browser game.
+              Options include a clicker game, dodge game, snake-style game, or simple space shooter. The focus is on
+              asking Codex to generate, explain, debug, and improve the game step by step.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can AI build a game that your friends can play?</div>
+              <div class="mini"><strong>Demo</strong>Use Codex to create a playable browser game and add score or levels</div>
+              <div class="mini"><strong>Homework</strong>Add one new feature and get feedback from a parent or friend</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="week">
+          <div class="week-label">CLASS <span>4</span></div>
+          <div class="week-body">
+            <h3>AI Agents & MCP — YouTube Research Agent</h3>
+            <p>
+              Students learn the concept of an AI agent and MCP. MCP is introduced as a simple idea:
+              <span class="highlight">a connector that lets AI use external tools</span>. Students build or simulate
+              a YouTube Research Agent that finds videos, summarizes them, and compares results.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can AI use internet tools by itself?</div>
+              <div class="mini"><strong>Demo</strong>Find and summarize YouTube videos about a student-selected topic</div>
+              <div class="mini"><strong>Homework</strong>Create a Top 3 video comparison report</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="week">
+          <div class="week-label">CLASS <span>5</span></div>
+          <div class="week-body">
+            <h3>Browser Use & Computer Use — AI as an Operator</h3>
+            <p>
+              Students learn how AI can use a browser or computer-like interface to perform tasks. The class focuses on
+              safe, understandable demos: opening pages, extracting information, filling simple forms, comparing results,
+              and explaining what the agent is doing.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can AI operate a browser like a human assistant?</div>
+              <div class="mini"><strong>Demo</strong>Browser Use and Computer Use workflow with a simple task</div>
+              <div class="mini"><strong>Homework</strong>Design a 5-step browser task that an AI agent could perform</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="week">
+          <div class="week-label">CLASS <span>6</span></div>
+          <div class="week-body">
+            <h3>OpenClaw + Codex OAuth — Building an AI Agent Workflow</h3>
+            <p>
+              Students are introduced to OpenClaw as a more advanced AI agent framework. The class explains OAuth in simple terms,
+              shows how Codex OAuth connects tools securely, and demonstrates an OpenClaw-style workflow. Students finish by
+              presenting their final AI project concept or demo.
+            </p>
+            <div class="mini-grid">
+              <div class="mini"><strong>Hook</strong>Can we connect AI tools like apps on a phone?</div>
+              <div class="mini"><strong>Demo</strong>OpenClaw workflow, OAuth login concept, and agent connection</div>
+              <div class="mini"><strong>Final</strong>Final AI project presentation and peer feedback</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">4</span>
+        <h2>Student Deliverables</h2>
+      </div>
+      <div class="outcomes">
+        <div class="outcome">
+          <span class="emoji">🤖</span>
+          <h3>AI Assistant</h3>
+          <p>A custom assistant based on each student’s interest: Minecraft Coach, Study Buddy, Music Advisor, and more.</p>
+        </div>
+        <div class="outcome">
+          <span class="emoji">🧩</span>
+          <h3>Web UI Example</h3>
+          <p>A simple web UI built while learning VS Code, Codex, folders, files, preview workflow, and token management.</p>
+        </div>
+        <div class="outcome">
+          <span class="emoji">🎮</span>
+          <h3>Playable Game</h3>
+          <p>A browser-based game built in Class 3 using the VS Code + Codex environment prepared in Class 2.</p>
+        </div>
+        <div class="outcome">
+          <span class="emoji">🧠</span>
+          <h3>AI Agent Workflow</h3>
+          <p>A small AI workflow using MCP, YouTube, Browser Use, Computer Use, OpenClaw, OAuth, or agent planning concepts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">5</span>
+        <h2>Class Format</h2>
+      </div>
+      <div class="grid three">
+        <div class="card">
+          <h3>1. Hook</h3>
+          <p>Each class starts with a question or demo that makes students curious immediately.</p>
+          <ul>
+            <li>Can AI become my coding partner?</li>
+            <li>Can AI build a game?</li>
+            <li>Can AI use YouTube or a browser?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>2. Live Demo</h3>
+          <p>The instructor shows a working example before explaining details. Students see the result first.</p>
+          <ul>
+            <li>Type a prompt</li>
+            <li>Generate or modify a project</li>
+            <li>Debug and improve live</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>3. Hands-on Build</h3>
+          <p>Students create their own version, make mistakes, ask AI for help, and improve through iteration.</p>
+          <ul>
+            <li>Individual project</li>
+            <li>Peer testing</li>
+            <li>Short presentation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">6</span>
+        <h2>Tools and Technologies</h2>
+      </div>
+      <div class="card">
+        <p class="lead">
+          Every tool is introduced as a practical building tool, not as abstract theory.
+        </p>
+        <div class="pill-row">
+          <span class="pill">ChatGPT</span>
+          <span class="pill">Prompt Engineering</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">Codex</span>
+          <span class="pill">Token Management</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Web UI</span>
+          <span class="pill">Game Development</span>
+          <span class="pill">MCP</span>
+          <span class="pill">YouTube Agent</span>
+          <span class="pill">Browser Use</span>
+          <span class="pill">Computer Use</span>
+          <span class="pill">OpenClaw</span>
+          <span class="pill">OAuth</span>
+          <span class="pill">AI Agent</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">7</span>
+        <h2>Final Project Ideas</h2>
+      </div>
+      <div class="grid three">
+        <div class="card soft">
+          <h3>Beginner</h3>
+          <ul>
+            <li>AI Study Buddy</li>
+            <li>Personal Web UI Assistant</li>
+            <li>AI Quiz Maker</li>
+            <li>AI Flashcard Generator</li>
+            <li>Simple Clicker Game</li>
+          </ul>
+        </div>
+        <div class="card soft2">
+          <h3>Intermediate</h3>
+          <ul>
+            <li>AI Game Helper</li>
+            <li>AI YouTube Researcher</li>
+            <li>AI Sports Coach</li>
+            <li>Browser Research Assistant</li>
+            <li>AI Music Recommender</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Advanced</h3>
+          <ul>
+            <li>MCP-connected Research Agent</li>
+            <li>Browser Automation Agent</li>
+            <li>Computer Use Workflow</li>
+            <li>OpenClaw Agent</li>
+            <li>OAuth-connected AI Tool</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">8</span>
+        <h2>Required Materials</h2>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>For Students</h3>
+          <ul>
+            <li>Laptop</li>
+            <li>Internet access</li>
+            <li>ChatGPT account</li>
+            <li>Google account</li>
+            <li>VS Code installed or installable</li>
+            <li>Codex access or instructor-provided setup path</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>For Instructor</h3>
+          <ul>
+            <li>Projector or large display</li>
+            <li>Prepared example prompts</li>
+            <li>VS Code + Codex setup guide</li>
+            <li>Codex UI and token management guide</li>
+            <li>Simple web UI starter example</li>
+            <li>HTML/JavaScript game starter examples</li>
+            <li>MCP + YouTube Agent demo setup</li>
+            <li>Browser Use / Computer Use / OpenClaw demo environment</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">9</span>
+        <h2>Assignments and Assessment</h2>
+      </div>
+      <div class="callout">
+        <h3>Assessment is based on projects, not tests.</h3>
+        <p>
+          Each class includes a small assignment that can be completed in about 30–60 minutes.
+          The assignments are designed to be shareable with parents, friends, or classmates.
+        </p>
+        <ul>
+          <li>Class 1: AI Assistant with example conversations</li>
+          <li>Class 2: VS Code + Codex setup screenshots and customized web UI example</li>
+          <li>Class 3: Playable browser game built with VS Code + Codex</li>
+          <li>Class 4: MCP + YouTube Research Agent report</li>
+          <li>Class 5: Browser/Computer Use task design</li>
+          <li>Class 6: OpenClaw-based final project concept or demo presentation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="num">10</span>
+        <h2>One-Sentence Course Description</h2>
+      </div>
+      <div class="card soft">
+        <h3>AI Builders Academy is...</h3>
+        <p class="lead">
+          A hands-on 6-class AI creator course where high school students use ChatGPT, VS Code,
+          Codex, MCP, YouTube agents, Browser Use, Computer Use, OpenClaw, and OAuth to build web UIs,
+          games, research agents, and automation workflows.
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      AI Builders Academy · Practical AI Creator Course · 6-Class Curriculum Plan
+    </div>
+  </main>
+</body>
+</html>
