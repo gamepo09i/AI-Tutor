@@ -7,6 +7,7 @@ This repository contains curriculum materials for teaching kids how to build wit
 - `slides/vibe-coding-curriculum.html` - a browser-based slide deck for teaching the course.
 - `slides/AI_Builders_Academy_Vibe_Coding_Tutor_Deck.pptx` - the tutor-facing slide deck that can be uploaded to Google Slides.
 - `slides/AI_Builders_Academy_Full_Lesson_Plan_Google_Slides.pptx` - the revamped full lesson-plan deck with one slide per week.
+- `slides/weekly/` - six separate weekly lesson-plan slide files, one presentation per lesson.
 - `docs/original/ai_builders_academy_6class_plan_english_revised_v4.html` - the original 6-class curriculum plan.
 - `guides/git-for-teachers.md` - a simple Git workflow for updating and sharing files.
 
@@ -16,6 +17,12 @@ For Google Slides, upload this PowerPoint file to Google Drive and open it with 
 
 ```text
 slides/AI_Builders_Academy_Full_Lesson_Plan_Google_Slides.pptx
+```
+
+If tutors need a separate link for each lesson, use the files in:
+
+```text
+slides/weekly/
 ```
 
 There is also a browser-based version you can open locally:
