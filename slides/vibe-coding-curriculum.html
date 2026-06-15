@@ -252,6 +252,52 @@
       white-space: pre-wrap;
     }
 
+    .mock-window {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      width: min(100%, 1120px);
+    }
+
+    .mock-bar {
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .mock-input {
+      margin: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 20px;
+      background: #f8fafc;
+    }
+
+    .mock-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 0 18px 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    .slash {
+      color: var(--blue);
+      font-weight: 900;
+      text-align: center;
+    }
+
     .callout {
       border-left: 8px solid var(--orange);
       background: #fff7ed;
@@ -441,6 +487,35 @@
     </section>
 
     <section class="slide">
+      <h2>Download everything before class</h2>
+      <div class="grid">
+        <div class="card"><h3>1. Open the repo</h3><p>Go to the GitHub page for the class materials.</p></div>
+        <div class="card"><h3>2. Click Code</h3><p>Use the green Code button near the file list.</p></div>
+        <div class="card"><h3>3. Download ZIP</h3><p>Choose Download ZIP, then unzip the folder.</p></div>
+        <div class="card"><h3>4. Open folder</h3><p>In VS Code, use File > Open Folder and select the unzipped folder.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Screenshot guide: GitHub download</h2>
+      <div class="mock-window">
+        <div class="mock-bar">github.com / class-repo</div>
+        <div class="mock-input">AI-Tutor file list <strong style="float:right;color:#0f9f6e;">Code</strong></div>
+        <div class="mock-row"><span class="slash">-></span><span>Click the green <strong>Code</strong> button.</span></div>
+        <div class="mock-row"><span class="slash">-></span><span>In the menu, choose <strong>Download ZIP</strong>.</span></div>
+        <div class="mock-row"><span class="slash">-></span><span>Unzip the download before opening it in VS Code.</span></div>
+      </div>
+      <div class="speaker"><strong>Teacher note:</strong> If GitHub changes the layout, the idea is still the same: find Code, download ZIP, unzip, open folder.</div>
+    </section>
+
+    <section class="slide">
+      <h2>Animation style used in this deck</h2>
+      <div class="callout">
+        <p>Trivia and answers are split across separate slides. Press next to reveal. This works reliably in PowerPoint, Google Slides, and browser mode.</p>
+      </div>
+    </section>
+
+    <section class="slide">
       <h2>Lesson 1: AI teammate foundations</h2>
       <div class="grid">
         <div class="card">
@@ -463,6 +538,46 @@ Help me prepare for a biology quiz about cells.
 
 Ask me one question at a time.
 If I get it wrong, explain it simply and give me another try.</div>
+    </section>
+
+    <section class="slide">
+      <h2>Lesson 1: ChatGPT / menu tour</h2>
+      <div class="mock-window">
+        <div class="mock-bar">Screenshot-style mockup: ChatGPT message box after typing /</div>
+        <div class="mock-input">/ Type a tool or command</div>
+        <div class="mock-row"><span class="slash">/</span><span><strong>Search</strong> - look up current public information.</span></div>
+        <div class="mock-row"><span class="slash">/</span><span><strong>Create image</strong> - generate or edit a picture from a description.</span></div>
+        <div class="mock-row"><span class="slash">/</span><span><strong>Canvas</strong> - open a writing/code workspace for longer drafts.</span></div>
+        <div class="mock-row"><span class="slash">/</span><span><strong>Analyze file</strong> - upload a PDF, spreadsheet, image, or notes for help.</span></div>
+        <div class="mock-row"><span class="slash">/</span><span><strong>Deep research</strong> - request a slower sourced report, when available.</span></div>
+      </div>
+      <div class="speaker"><strong>Teacher note:</strong> The exact list can change by account and school settings. Teach students the habit: choose the tool that matches the job.</div>
+    </section>
+
+    <section class="slide">
+      <h2>Why this prompt is weak</h2>
+      <div class="grid three">
+        <div class="card"><h3>Bad</h3><p>"Help me study."</p></div>
+        <div class="card"><h3>Why it fails</h3><p>No role, no topic, no format, and no interaction rule. ChatGPT has to guess what kind of help you want.</p></div>
+        <div class="card"><h3>Repair prompt</h3><p>Make my prompt better. Ask me for missing details first, then rewrite it using Role + Task + Context + Format.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Better prompt examples</h2>
+      <ul class="steps">
+        <li>Act as a biology tutor. Quiz me on cell parts one question at a time and explain mistakes simply.</li>
+        <li>Act as a basketball trainer. Make a 20-minute beginner dribbling practice plan.</li>
+        <li>Act as a game designer. Give me 3 simple HTML game ideas and rank them from easiest to hardest.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Trivia reveal: prompt quality</h2>
+      <div class="grid">
+        <div class="card"><h3>Question</h3><p>Which prompt will usually teach better: "Help me study" or "Act as a biology tutor..."?</p></div>
+        <div class="card"><h3>Answer</h3><p>The tutor prompt. It includes role, topic, task, format, and an interaction rule.</p></div>
+      </div>
     </section>
 
     <section class="slide">
@@ -492,6 +607,21 @@ Then: Create a beginner-friendly Space Invaders-style browser game in one file n
     </section>
 
     <section class="slide">
+      <h2>Lesson 2: why "make me a game" is weak</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Weak prompt</h3>
+          <p>"Make me a game." It does not name the game type, file, controls, difficulty, required features, or how much code is okay.</p>
+        </div>
+        <div class="card">
+          <h3>Better prompt</h3>
+          <p>Create a beginner-friendly Space Invaders-style game in one HTML file. Include player movement, shooting, falling enemies, score, lives, restart, and comments.</p>
+        </div>
+      </div>
+      <div class="speaker"><strong>Fix prompt:</strong> Rewrite this as a Codex prompt with exact file name, controls, features, and a request to explain the code.</div>
+    </section>
+
+    <section class="slide">
       <h2>Lesson 2 final interactive: Space Invaders basics</h2>
       <div class="grid three">
         <div class="card"><h3>Core loop</h3><p>Move the ship, shoot bullets, hit enemies, update score.</p></div>
@@ -504,11 +634,20 @@ Then: Create a beginner-friendly Space Invaders-style browser game in one file n
     <section class="slide">
       <h2>Lesson 2 game improvement prompts</h2>
       <ul class="steps">
+        <li>The bullets do not hit enemies. Find the collision bug and change only the needed code.</li>
         <li>Add a start screen and game over screen.</li>
         <li>Make enemies faster after every 10 points.</li>
         <li>Add a power-up that gives double shots for 8 seconds.</li>
         <li>Explain the collision code like I am new to JavaScript.</li>
       </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Trivia reveal: debugging</h2>
+      <div class="grid">
+        <div class="card"><h3>Question</h3><p>Which is better: "It is broken" or "Bullets appear, but they do not disappear when they hit enemies"?</p></div>
+        <div class="card"><h3>Answer</h3><p>The second. It tells Codex what happened, what should happen, and where to look.</p></div>
+      </div>
     </section>
 
     <section class="slide">
@@ -524,6 +663,21 @@ Then: Create a beginner-friendly Space Invaders-style browser game in one file n
         </div>
       </div>
       <div class="speaker"><strong>Simple phrase:</strong> An agent is AI plus a job plus tools.</div>
+    </section>
+
+    <section class="slide">
+      <h2>Lesson 3: prompt repair for research</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Weak prompt</h3>
+          <p>"Find videos about coding." It does not say beginner or advanced, how many videos, what to compare, or what to verify.</p>
+        </div>
+        <div class="card">
+          <h3>Better prompt</h3>
+          <p>Compare 3 beginner-friendly YouTube videos about making a simple JavaScript game. Give topic, strongest part, weakness, and which one to watch first.</p>
+        </div>
+      </div>
+      <div class="speaker"><strong>Fix prompt:</strong> Turn this into a safe research-agent prompt. Add source checking, beginner criteria, and a table format.</div>
     </section>
 
     <section class="slide">
@@ -562,11 +716,50 @@ Then: Create a beginner-friendly Space Invaders-style browser game in one file n
     </section>
 
     <section class="slide">
+      <h2>Lesson 3 examples students can copy</h2>
+      <ul class="steps">
+        <li>What facts should I verify before trusting this video summary?</li>
+        <li>Design a safe 5-step public-information browser task with one human approval checkpoint.</li>
+        <li>Make a table with video title, skill level, strongest part, weakness, and recommendation.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Trivia reveal: safe agent tasks</h2>
+      <div class="grid">
+        <div class="card"><h3>Question</h3><p>Which is safer: buying something online, logging into email, or comparing public tutorials?</p></div>
+        <div class="card"><h3>Answer</h3><p>Comparing public tutorials. It avoids private accounts, purchases, and irreversible actions.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
       <h2>Lesson 4: Final project choices</h2>
       <div class="grid three">
         <div class="card"><h3>Assistant</h3><p>AI study buddy, quiz maker, flashcards, coach, or recommender.</p></div>
         <div class="card"><h3>Game</h3><p>Space Invaders upgrade, dodge game, clicker, quiz game, or game helper.</p></div>
         <div class="card"><h3>Agent</h3><p>MCP workflow, browser task design, YouTube researcher, or OpenClaw-style concept.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Lesson 4: prompt repair for presentations</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Weak prompt</h3>
+          <p>"Make my presentation good." It does not explain the project, audience, time limit, or what must be included.</p>
+        </div>
+        <div class="card">
+          <h3>Better prompt</h3>
+          <p>Help me write a 2-minute demo script for my Space Invaders project. Audience: classmates. Include what I built, one bug I fixed, one prompt that helped, and one feature I would add next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Trivia reveal: final demos</h2>
+      <div class="grid">
+        <div class="card"><h3>Question</h3><p>What makes a final demo strong?</p></div>
+        <div class="card"><h3>Answer</h3><p>One clear working moment, one problem it solves, one thing that broke, and one improvement idea.</p></div>
       </div>
     </section>
 
