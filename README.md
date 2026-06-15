@@ -5,19 +5,11 @@ This repository contains curriculum materials for teaching kids how to build wit
 ## What is in this repo?
 
 - `slides/vibe-coding-curriculum.html` - a browser-based slide deck for teaching the course.
-- `slides/AI_Builders_Academy_Vibe_Coding_Tutor_Deck.pptx` - the tutor-facing slide deck that can be uploaded to Google Slides.
-- `slides/AI_Builders_Academy_Full_Lesson_Plan_Google_Slides.pptx` - the revamped full lesson-plan deck with one slide per week.
-- `slides/weekly/` - six separate weekly lesson-plan slide files, one presentation per lesson.
-- `docs/original/ai_builders_academy_6class_plan_english_revised_v4.html` - the original 6-class curriculum plan.
+- `slides/weekly/` - four separate weekly lesson-plan slide files, one presentation per lesson.
+- `docs/original/ai_builders_academy_4lesson_plan.html` - the four-lesson curriculum plan.
 - `guides/git-for-teachers.md` - a simple Git workflow for updating and sharing files.
 
 ## How to use the slides
-
-For Google Slides, upload this PowerPoint file to Google Drive and open it with Google Slides:
-
-```text
-slides/AI_Builders_Academy_Full_Lesson_Plan_Google_Slides.pptx
-```
 
 If tutors need a separate link for each lesson, use the files in:
 
@@ -37,14 +29,12 @@ Use the arrow keys, spacebar, or on-screen buttons to move through the slides.
 
 Students learn that AI is not magic and not just a chatbot. It is a creative building partner. They practice asking clearly, testing results, improving projects, and explaining what they changed.
 
-The course is built around six classes:
+The course is built around four 90-minute lessons:
 
-1. ChatGPT and prompt basics
-2. VS Code and Codex setup
-3. Build a browser game with Codex
-4. AI agents and MCP research workflows
-5. Browser Use and Computer Use concepts
-6. Final AI agent workflow and presentations
+1. AI teammate foundations: ChatGPT, prompt basics, and a personal assistant
+2. Codex build studio: VS Code setup, web UI, and a Space Invaders starter
+3. AI agents and research workflows: MCP, YouTube research, browser use, and safety
+4. Final agent project: OpenClaw/OAuth concepts, demo practice, and presentations
 
 ## Updating the repo
 

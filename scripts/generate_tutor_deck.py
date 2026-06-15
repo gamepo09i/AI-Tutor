@@ -127,7 +127,7 @@ def title_slide(prs, number):
     set_fill(accent, COLORS["orange"])
     accent2 = slide.shapes.add_shape(MSO_SHAPE.OVAL, Inches(10.7), Inches(4.35), Inches(2.2), Inches(2.2))
     set_fill(accent2, COLORS["green"])
-    add_chip(slide, 0.85, 0.75, "6-Class Tutor Deck", COLORS["blue"])
+    add_chip(slide, 0.85, 0.75, "4-Lesson Tutor Deck", COLORS["blue"])
     add_textbox(slide, 0.85, 1.55, 8.9, 1.75, "AI Builders Academy", size=52, bold=True, color=COLORS["white"])
     add_textbox(slide, 0.9, 3.05, 9.45, 1.05, "Teaching kids vibe coding with ChatGPT, VS Code, Codex, games, agents, and practical AI workflows.", size=24, color=RGBColor(226, 232, 240))
     add_textbox(slide, 0.9, 5.9, 6.2, 0.35, "For tutors: goals, timing, demos, prompts, and assignments", size=15, color=RGBColor(203, 213, 225))
@@ -146,7 +146,7 @@ def section_slide(prs, number, title, subtitle, color):
 
 
 def lesson_slide(prs, number, class_no, title, goal, flow, output, homework, color):
-    slide = blank_slide(prs, number, f"Class {class_no}: {title}", "90-120 minute teaching plan")
+    slide = blank_slide(prs, number, f"Lesson {class_no}: {title}", "90-minute teaching plan")
     add_card(slide, 0.78, 1.75, 3.8, 1.45, "Goal", goal, color)
     add_card(slide, 4.78, 1.75, 3.8, 1.45, "Student output", output, COLORS["green"])
     add_card(slide, 8.78, 1.75, 3.8, 1.45, "Homework", homework, COLORS["orange"])
@@ -166,7 +166,7 @@ def build_deck():
     n += 1
     slide = blank_slide(prs, n, "How to use this deck", "Designed for tutors who may be new to AI coding")
     add_bullets(slide, 0.95, 1.75, 11.45, 3.5, [
-        "Use the class plan slides to teach the six-session course.",
+        "Use the lesson plan slides to teach the four-session course.",
         "Use the prompt slides as live demo scripts.",
         "Let students build small first, then customize.",
         "Do not worry about knowing every answer. Model asking, testing, and debugging.",
@@ -192,22 +192,20 @@ def build_deck():
     ], size=23)
 
     n += 1
-    slide = blank_slide(prs, n, "Course roadmap", "Six classes, each with a buildable output")
+    slide = blank_slide(prs, n, "Course roadmap", "Four 90-minute lessons, each with a buildable output")
     roadmap = [
-        ("Class 1", "ChatGPT basics", "Personal AI assistant"),
-        ("Class 2", "VS Code + Codex", "Simple web UI"),
-        ("Class 3", "AI game studio", "Playable browser game"),
-        ("Class 4", "Agents + MCP", "YouTube research report"),
-        ("Class 5", "Browser/Computer Use", "Automation task design"),
-        ("Class 6", "Final workflow", "Demo or project pitch"),
+        ("Lesson 1", "AI foundations", "Personal AI assistant"),
+        ("Lesson 2", "Codex build studio", "Web UI + Space Invaders starter"),
+        ("Lesson 3", "Agents + research", "Video report + browser task"),
+        ("Lesson 4", "Final agent project", "Demo or project pitch"),
     ]
-    x_positions = [0.75, 4.65, 8.55, 0.75, 4.65, 8.55]
-    y_positions = [1.75, 1.75, 1.75, 4.25, 4.25, 4.25]
+    x_positions = [0.75, 4.65, 8.55, 4.65]
+    y_positions = [1.75, 1.75, 1.75, 4.25]
     for i, (label, title, body) in enumerate(roadmap):
-        add_card(slide, x_positions[i], y_positions[i], 3.55, 1.75, f"{label}: {title}", body, [COLORS["blue"], COLORS["green"], COLORS["orange"], COLORS["purple"], COLORS["blue"], COLORS["green"]][i])
+        add_card(slide, x_positions[i], y_positions[i], 3.55, 1.75, f"{label}: {title}", body, [COLORS["blue"], COLORS["green"], COLORS["purple"], COLORS["blue"]][i])
 
     n += 1
-    slide = blank_slide(prs, n, "Default class structure", "Use this rhythm every week")
+    slide = blank_slide(prs, n, "Default lesson structure", "Use this rhythm every week")
     add_bullets(slide, 0.95, 1.65, 11.45, 4.05, [
         "Hook, 5-10 min: show a surprising or useful AI example.",
         "Demo, 15-25 min: tutor builds one small thing live.",
@@ -226,15 +224,13 @@ def build_deck():
     add_prompt_box(slide, "Act as a beginner-friendly coding tutor. Help me build a simple clicker game in one HTML file. Include score, a timer, and comments explaining the code.", y=4.65)
 
     n += 1
-    section_slide(prs, n, "Class-by-Class Teaching Plan", "Each class includes a clear output students can show.", COLORS["blue"])
+    section_slide(prs, n, "Lesson-by-Lesson Teaching Plan", "Each lesson includes a clear output students can show.", COLORS["blue"])
 
     lessons = [
-        (1, "Meet your AI teammate", "Students learn that ChatGPT can act as a tutor, coach, brainstorming partner, and project helper.", ["Hook: Can AI do my homework, and should it?", "Demo: bad prompt vs. better prompt.", "Build: students design a custom assistant.", "Share: students test assistant answers with a partner."], "Custom assistant with five example conversations.", "Add five screenshots or copied examples of useful conversations.", COLORS["blue"]),
-        (2, "VS Code + Codex setup", "Students learn project folders, files, VS Code, Codex, and previewing a simple page.", ["Hook: Can AI become your coding partner inside the editor?", "Demo: open a folder, create index.html, preview it.", "Build: personalize an AI Builder profile page.", "Debug: ask Codex to explain and fix one issue."], "Working coding folder plus a simple web UI.", "Customize the page with one personal section and one style change.", COLORS["green"]),
-        (3, "AI game studio", "Students use Codex to build a simple browser game and improve it through prompts.", ["Hook: Can AI build a game your friends can play?", "Demo: generate a tiny clicker or dodge game.", "Build: students choose a game type.", "Playtest: partner gives one improvement idea."], "Playable HTML/CSS/JavaScript game.", "Add one feature: score, timer, levels, sound, or game-over screen.", COLORS["orange"]),
-        (4, "AI agents and MCP", "Students learn that agents can plan steps and use tools, with MCP as a connector idea.", ["Hook: Can AI use tools by itself?", "Demo: research a topic and summarize results.", "Build: make a top-three YouTube research report.", "Discuss: when should humans verify AI research?"], "AI YouTube research report.", "Compare three videos and recommend the best one for beginners.", COLORS["purple"]),
-        (5, "Browser Use and Computer Use", "Students explore how AI can operate browser-like or computer-like environments safely.", ["Hook: Can AI operate a browser like an assistant?", "Demo: public information collection task.", "Build: design a five-step browser task.", "Safety review: identify risky actions."], "Browser or computer task automation design.", "Write a safe five-step browser task an AI agent could perform.", COLORS["blue"]),
-        (6, "Final AI workflow presentations", "Students connect the course ideas into a final concept, demo, or workflow.", ["Hook: What could you build next with AI?", "Demo: show a simple agent workflow concept.", "Build: prepare final demo or project pitch.", "Present: students explain goal, prompt, bug, and next step."], "Final project concept, demo, or presentation.", "Optional: revise final project after feedback.", COLORS["green"]),
+        (1, "AI teammate foundations", "Students learn that AI can be a tutor, coach, brainstorming partner, and project helper when prompted clearly.", ["Hook: Can AI do my homework, and should it?", "Demo: bad prompt vs. better prompt.", "Build: students design a custom assistant.", "Share: students test assistant answers with a partner."], "Custom assistant with five example conversations.", "Add five example conversations and one safety rule.", COLORS["blue"]),
+        (2, "Codex build studio", "Students set up VS Code/Codex, make a simple web UI, then build a Space Invaders-style starter.", ["Setup: open folder and preview page.", "Demo: create index.html.", "Build: personalize an AI Builder profile page.", "Final sprint: make Space Invaders basics with Codex."], "Personal web page plus playable Space Invaders starter.", "Expand the game with one enemy type, power-up, sound, level, or visual polish.", COLORS["green"]),
+        (3, "Agents and research workflows", "Students combine MCP, YouTube research, browser use, verification, and safety boundaries.", ["Hook: Can AI use internet tools by itself?", "Demo: chatbot vs agent.", "Build: top-three YouTube report.", "Safety review: design a browser task with approval checkpoints."], "Video comparison report plus safe browser task design.", "Create a Top 3 video report and a safe 5-step browser task.", COLORS["purple"]),
+        (4, "Final agent project", "Students connect the course ideas into a final concept, demo, or workflow presentation.", ["Hook: What could you build next with AI?", "Demo: OpenClaw/OAuth workflow concept.", "Build: prepare final demo or project pitch.", "Present: students explain goal, prompt, bug, and next step."], "Final project concept, demo, or presentation.", "Revise the final project after feedback and add one improvement.", COLORS["blue"]),
     ]
     for lesson in lessons:
         n += 1
@@ -244,12 +240,12 @@ def build_deck():
     section_slide(prs, n, "Live Demo Prompts", "Copy these prompts into ChatGPT or Codex during class.", COLORS["green"])
 
     prompts = [
-        ("Class 1 demo prompt", "Act as a friendly study coach for a high school student.\n\nHelp me prepare for a biology quiz about cells.\n\nAsk me one question at a time. If I get it wrong, explain it simply and give me another try."),
-        ("Class 2 Codex prompt", "Create a beginner-friendly personal web page in one file named index.html.\n\nTheme: AI Builder profile\nSections: name, favorite apps, project ideas, and one button\nStyle: clean, colorful, easy to read\n\nAfter creating it, explain the file in simple language."),
-        ("Class 3 game prompt", "Create a simple browser clicker game in one HTML file.\n\nRequirements:\n- score starts at 0\n- a 30 second timer\n- one button to earn points\n- game over message\n- clean styling\n- comments explaining the JavaScript"),
-        ("Class 3 improvement prompt", "Improve this game for beginners.\n\nAdd one new feature, explain exactly what changed, and keep the code in one HTML file. Do not make it too complicated."),
-        ("Class 4 research prompt", "Act as a careful research assistant.\n\nTopic: [student topic]\nFind or compare three useful YouTube video ideas for beginners. Summarize each one, explain who it is best for, and recommend the best first video."),
-        ("Class 5 task-design prompt", "Design a safe browser task for an AI agent.\n\nThe task must use only public information, must not log into accounts, must not buy anything, and must include a human approval checkpoint before any submission."),
+        ("Lesson 1 demo prompt", "Act as a friendly study coach for a high school student.\n\nHelp me prepare for a biology quiz about cells.\n\nAsk me one question at a time. If I get it wrong, explain it simply and give me another try."),
+        ("Lesson 2 web prompt", "Create a beginner-friendly personal web page in one file named index.html.\n\nTheme: AI Builder profile\nSections: name, favorite apps, project ideas, and one button\nStyle: clean, colorful, easy to read\n\nAfter creating it, explain the file in simple language."),
+        ("Lesson 2 game prompt", "Create a beginner-friendly Space Invaders-style browser game in one file named space-invaders.html.\n\nInclude player movement, shooting, falling enemies, score, lives, restart, and comments explaining the code."),
+        ("Lesson 2 improvement prompt", "Improve this Space Invaders starter for beginners.\n\nAdd one new feature, explain exactly what changed, and keep the code in one HTML file. Do not make it too complicated."),
+        ("Lesson 3 research prompt", "Act as a careful research assistant.\n\nTopic: [student topic]\nCompare three useful YouTube video ideas for beginners. Summarize each one, recommend the best first video, and list what a human should verify."),
+        ("Lesson 3 task-design prompt", "Design a safe browser task for an AI agent.\n\nThe task must use only public information, must not log into accounts, must not buy anything, and must include a human approval checkpoint before any submission."),
     ]
     for title, prompt in prompts:
         n += 1
@@ -301,7 +297,7 @@ def build_deck():
     ], size=23)
 
     n += 1
-    slide = blank_slide(prs, n, "Final presentation template", "Give this to students before Class 6")
+    slide = blank_slide(prs, n, "Final presentation template", "Give this to students before Lesson 4")
     add_bullets(slide, 0.95, 1.75, 11.45, 3.9, [
         "What did you build?",
         "Who is it for?",
@@ -318,7 +314,7 @@ def build_deck():
         "Commit a meaningful batch of changes.",
         "Push to GitHub.",
         "Tell tutors to download the repo or pull the newest version.",
-        "Use clear commit messages like: Update class 3 game prompts."
+        "Use clear commit messages like: Update lesson 2 game prompts."
     ], size=24)
     add_prompt_box(slide, "git status\ngit add .\ngit commit -m \"Update tutor slide deck\"\ngit push", y=5.15)
 

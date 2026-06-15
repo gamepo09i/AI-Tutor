@@ -140,91 +140,67 @@ def build():
     rect(s, 0.75, 0.75, 2.35, 0.38, BLUE, BLUE)
     textbox(s, 0.9, 0.83, 2.05, 0.18, "Tutor Lesson Plan", 11, True, WHITE, PP_ALIGN.CENTER)
     textbox(s, 0.75, 1.55, 8.8, 0.85, "AI Builders Academy", 44, True, WHITE)
-    textbox(s, 0.78, 2.55, 9.5, 0.95, "Six-week vibe coding curriculum for tutors teaching kids to build with ChatGPT, VS Code, Codex, games, agents, and safe AI workflows.", 22, False, RGBColor(226, 232, 240))
-    textbox(s, 0.78, 5.72, 8.2, 0.32, "Use the Week Hub for direct links to each class.", 14, False, RGBColor(203, 213, 225))
+    textbox(s, 0.78, 2.55, 9.5, 0.95, "Four-lesson vibe coding curriculum for tutors teaching kids to build with ChatGPT, VS Code, Codex, games, agents, and safe AI workflows.", 22, False, RGBColor(226, 232, 240))
+    textbox(s, 0.78, 5.72, 8.2, 0.32, "Use the Lesson Hub for direct links to each 90-minute lesson.", 14, False, RGBColor(203, 213, 225))
     footer(s, 1)
     title = s
 
     # Hub
     hub = prs.slides.add_slide(blank)
     fill_background(hub, LIGHT)
-    textbox(hub, 0.55, 0.45, 8.6, 0.52, "Week Hub: six direct lesson links", 30, True, INK)
-    textbox(hub, 0.58, 1.02, 9.7, 0.25, "Click a week card during tutor prep or while teaching. Each week is designed as one complete lesson-plan slide.", 12.5, False, MUTED)
+    textbox(hub, 0.55, 0.45, 8.6, 0.52, "Lesson Hub: four direct lesson links", 30, True, INK)
+    textbox(hub, 0.58, 1.02, 9.7, 0.25, "Click a lesson card during tutor prep or while teaching. Each lesson is designed as one complete 90-minute plan.", 12.5, False, MUTED)
     footer(hub, 2)
 
     weeks = []
     week_data = [
         {
             "week": 1,
-            "title": "Meet Your AI Teammate",
-            "subtitle": "ChatGPT basics + prompt formula",
+            "title": "AI Teammate Foundations",
+            "subtitle": "ChatGPT, prompting, and first assistant",
             "color": BLUE,
-            "goal": "Students learn that AI can be a tutor, coach, brainstorming partner, and project helper.",
+            "goal": "Students learn to direct AI with clear roles, context, and output formats.",
             "output": "Personal AI assistant with 5 example conversations.",
-            "flow": ["0-10 Hook: Can AI do my homework?", "10-25 Demo: weak vs strong prompt", "25-70 Build: custom assistant", "70-85 Partner test", "85-90 Wrap"],
+            "flow": ["0-10 Hook: Can AI do my homework?", "10-30 Prompt formula demo", "30-70 Build custom assistant", "70-85 Partner test + revise", "85-90 Exit ticket"],
             "interactive": ["Thumb vote: helpful or lazy?", "Pair test: ask your partner's assistant one question", "Debug moment: make a vague prompt clearer"],
             "prompt": "Act as a friendly study coach for a high school student.\nHelp me study [topic]. Ask one question at a time. If I get it wrong, explain simply and let me try again.",
-            "homework": "Create 5 example conversations with your assistant. Replace this with your own homework if needed.",
+            "homework": "Create 5 example conversations with your assistant and add one safety rule.",
         },
         {
             "week": 2,
-            "title": "VS Code + Codex Setup",
-            "subtitle": "Folders, files, preview, first web UI",
+            "title": "Codex Build Studio",
+            "subtitle": "VS Code, web UI, and Space Invaders basics",
             "color": GREEN,
-            "goal": "Students open a project folder, understand files, use VS Code/Codex, and preview a simple page.",
-            "output": "Working coding folder plus a personalized AI Builder profile page.",
-            "flow": ["0-10 Hook: AI inside your editor", "10-30 Setup walkthrough", "30-45 Demo: create index.html", "45-80 Build: profile page", "80-90 Share one change"],
-            "interactive": ["Setup checkpoint: everyone shows folder", "Choice board: colors, sections, button action", "Explain-back: what is index.html?"],
-            "prompt": "Create a beginner-friendly personal web page in one file named index.html. Theme: AI Builder profile. Include name, favorite apps, project ideas, and one button.",
-            "homework": "Customize the page with one personal section and one visual style change. Replace this later if needed.",
+            "goal": "Students set up Codex, create a web UI, and build the basics of a browser game.",
+            "output": "Personal web page plus a playable Space Invaders starter.",
+            "flow": ["0-15 Setup + folder tour", "15-35 Profile page demo", "35-55 Student customization", "55-85 Space Invaders starter", "85-90 Playtest + exit"],
+            "interactive": ["Setup checkpoint: everyone shows folder", "Choice board: customize one section", "Final sprint: build Space Invaders basics"],
+            "prompt": "Create a beginner-friendly Space Invaders-style browser game in one file named space-invaders.html. Include a player ship, left/right movement, shooting, falling enemies, score, lives, restart button, and comments explaining the main code.",
+            "homework": "Expand the Space Invaders starter with one enemy type, power-up, sound effect, level, or visual polish.",
         },
         {
             "week": 3,
-            "title": "AI Game Studio",
-            "subtitle": "Build and improve a browser game",
-            "color": ORANGE,
-            "goal": "Students use Codex to create, test, debug, and improve a simple browser game.",
-            "output": "Playable HTML/CSS/JavaScript game.",
-            "flow": ["0-10 Hook: Can AI make a game?", "10-25 Demo: tiny clicker game", "25-65 Build: choose game type", "65-82 Playtest", "82-90 Add one feature plan"],
-            "interactive": ["Game menu: clicker, dodge, quiz", "Bug hunt: what broke?", "Peer playtest: one compliment, one upgrade"],
-            "prompt": "Create a simple browser clicker game in one HTML file. Add score, 30-second timer, game over message, clean styling, and comments explaining the JavaScript.",
-            "homework": "Add one feature: score effect, levels, sound, timer change, or game-over screen. Edit this homework as desired.",
+            "title": "AI Agents and Research Workflows",
+            "subtitle": "MCP, YouTube research, and browser safety",
+            "color": PURPLE,
+            "goal": "Students design a safe tool-using research workflow with human verification.",
+            "output": "Top 3 video report plus safe browser task design.",
+            "flow": ["0-10 Agent vs chatbot hook", "10-30 MCP + tools demo", "30-60 YouTube research build", "60-80 Browser safety design", "80-90 Share-out"],
+            "interactive": ["Sort cards: chatbot or agent?", "Red/yellow/green: is this task safe?", "Verification checkpoint: what should humans check?"],
+            "prompt": "Act as a careful research assistant. Topic: [student topic]. Compare three beginner-friendly YouTube videos. Summarize each, recommend the best first video, and list what a human should verify.",
+            "homework": "Create a Top 3 video report and add a safe 5-step browser task that could extend the research.",
         },
         {
             "week": 4,
-            "title": "AI Agents + MCP",
-            "subtitle": "Tool-using AI + YouTube research workflow",
-            "color": PURPLE,
-            "goal": "Students learn the difference between chatbot and agent, and see MCP as a connector for tools.",
-            "output": "Top 3 YouTube research report with recommendation.",
-            "flow": ["0-10 Hook: Can AI use tools?", "10-25 Explain chatbot vs agent", "25-45 Demo research workflow", "45-75 Build report", "75-90 Verify and discuss"],
-            "interactive": ["Sort cards: chatbot or agent?", "Topic vote: choose research topic", "Verification checkpoint: what should humans check?"],
-            "prompt": "Act as a careful research assistant. Topic: [student topic]. Compare three beginner-friendly YouTube videos. Summarize each and recommend the best first video.",
-            "homework": "Create a Top 3 video comparison report. Replace or adjust this homework for your class.",
-        },
-        {
-            "week": 5,
-            "title": "Browser Use + Computer Use",
-            "subtitle": "AI as an operator with safety boundaries",
-            "color": RED,
-            "goal": "Students design safe browser/computer tasks and understand human approval checkpoints.",
-            "output": "A safe five-step automation task design.",
-            "flow": ["0-10 Hook: AI operating a browser", "10-25 Safety rules", "25-45 Demo public-info task", "45-75 Design task", "75-90 Risk review"],
-            "interactive": ["Red/yellow/green: is this task safe?", "Group design: 5-step workflow", "Stop button practice: when to interrupt AI"],
-            "prompt": "Design a safe browser task for an AI agent. Use public information only. Do not log in, buy anything, or submit real forms. Include a human approval checkpoint.",
-            "homework": "Write a safe five-step browser task an AI agent could perform. Change this homework as needed.",
-        },
-        {
-            "week": 6,
-            "title": "Final AI Workflow Demo",
-            "subtitle": "Present, reflect, and choose next build",
+            "title": "Final Agent Project",
+            "subtitle": "OpenClaw, OAuth, demo, and next build",
             "color": BLUE,
             "goal": "Students connect course ideas into a final project concept, demo, or workflow presentation.",
-            "output": "Final demo or project pitch.",
-            "flow": ["0-10 Hook: what could you build next?", "10-25 Demo presentation model", "25-60 Build/polish", "60-85 Presentations", "85-90 Feedback and next step"],
+            "output": "Final project concept, demo, or 2-minute presentation.",
+            "flow": ["0-20 OpenClaw + OAuth concept", "20-45 Project planning", "45-70 Demo/pitch build", "70-85 Gallery walk", "85-90 Reflection"],
             "interactive": ["Gallery walk: leave one note", "Presentation timer: 2 minutes each", "Next-build vote: what would you add?"],
             "prompt": "Help me prepare a 2-minute project presentation. Include: what I built, who it helps, best prompt, what broke, how I fixed it, and what I would add next.",
-            "homework": "Optional: revise the final project after feedback. You can replace this with a final reflection or extension task.",
+            "homework": "Refine the final project after feedback and add one improvement to the game, assistant, workflow, or agent plan.",
         },
     ]
 
@@ -260,13 +236,13 @@ def build():
         weeks.append(s)
 
     # Hub cards after week slides exist.
-    coords = [(0.65, 1.65), (4.72, 1.65), (8.79, 1.65), (0.65, 4.05), (4.72, 4.05), (8.79, 4.05)]
+    coords = [(0.65, 1.65), (4.72, 1.65), (8.79, 1.65), (4.72, 4.05)]
     for i, item in enumerate(week_data):
         x, y = coords[i]
         shape = rect(hub, x, y, 3.55, 1.65, WHITE, LINE)
         shape.click_action.target_slide = weeks[i]
         rect(hub, x, y, 0.12, 1.65, item["color"], item["color"], radius=False)
-        textbox(hub, x + 0.28, y + 0.2, 2.9, 0.22, f"Week {item['week']}", 12, True, item["color"])
+        textbox(hub, x + 0.28, y + 0.2, 2.9, 0.22, f"Lesson {item['week']}", 12, True, item["color"])
         textbox(hub, x + 0.28, y + 0.48, 2.95, 0.38, item["title"], 16, True, INK)
         textbox(hub, x + 0.28, y + 0.96, 2.9, 0.35, item["output"], 10.5, False, MUTED)
         textbox(hub, x + 2.82, y + 1.32, 0.45, 0.16, "Open", 8, True, item["color"], PP_ALIGN.RIGHT)
@@ -274,7 +250,7 @@ def build():
     # Add title slide button after hub exists.
     btn = rect(title, 0.78, 4.85, 2.05, 0.48, BLUE, BLUE)
     btn.click_action.target_slide = hub
-    btn.text_frame.text = "Open Week Hub"
+    btn.text_frame.text = "Open Lesson Hub"
     btn.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
     btn.text_frame.paragraphs[0].runs[0].font.name = "Aptos"
     btn.text_frame.paragraphs[0].runs[0].font.size = Pt(13)
@@ -283,7 +259,7 @@ def build():
 
     # Week navigation buttons.
     for i, s in enumerate(weeks):
-        nav_button(s, 8.05, "Week Hub", hub)
+        nav_button(s, 8.05, "Lesson Hub", hub)
         if i > 0:
             nav_button(s, 9.45, "Prev", weeks[i - 1])
         if i < len(weeks) - 1:
